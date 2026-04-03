@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التقرير الشهري — مارس 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: #f8fafb;
+    color: #1a1a1a;
+    line-height: 1.7;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .report {
+    max-width: 850px;
+    margin: 32px auto;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    padding: 48px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  @media print {
+    body { background: #fff; }
+    .report { margin: 0; padding: 24px; border: none; border-radius: 0; box-shadow: none; }
+    .no-print { display: none !important; }
+  }
+
+  /* ─── Brand Colors ─── */
+  :root {
+    --teal: #026D69;
+    --teal-light: #038A85;
+    --teal-bg: #E5F5F5;
+    --lime: #86B940;
+    --lime-bg: rgba(134,185,64,0.08);
+    --gold: #A8872C;
+    --gold-bg: rgba(168,135,44,0.08);
+    --blue: #1A5276;
+    --blue-bg: rgba(26,82,118,0.06);
+    --red: #c0392b;
+  }
+
+  /* ─── Header ─── */
+  .header { text-align: center; border-bottom: 2px solid var(--teal); padding-bottom: 28px; margin-bottom: 32px; }
+  .header .ministry { font-size: 11px; color: #9ca3af; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .header .department { font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 16px; }
+  .header .deco { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px; }
+  .header .deco .line { height: 1px; width: 64px; background: rgba(2,109,105,0.25); }
+  .header .deco .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+  .header h1 { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 4px; }
+  .header .period { font-size: 16px; font-weight: 500; color: var(--teal); }
+
+  /* ─── Section Heading ─── */
+  .section-heading { display: flex; align-items: center; gap: 12px; margin-top: 36px; margin-bottom: 14px; }
+  .section-heading .num {
+    width: 28px; height: 28px; border-radius: 8px; background: var(--teal); color: #fff;
+    font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-heading h2 { font-size: 16px; font-weight: 700; color: #111; border-bottom: 1px solid rgba(2,109,105,0.15); padding-bottom: 4px; flex: 1; }
+
+  /* ─── KPI Grid ─── */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; }
+  .kpi { border-radius: 12px; padding: 14px; text-align: center; }
+  .kpi .value { font-size: 28px; font-weight: 800; }
+  .kpi .label { font-size: 11px; color: #6b7280; margin-top: 2px; }
+  .kpi-teal { background: var(--teal-bg); }
+  .kpi-teal .value { color: var(--teal); }
+  .kpi-lime { background: var(--lime-bg); }
+  .kpi-lime .value { color: var(--lime); }
+  .kpi-blue { background: var(--blue-bg); }
+  .kpi-blue .value { color: var(--blue); }
+  .kpi-gold { background: var(--gold-bg); }
+  .kpi-gold .value { color: var(--gold); }
+
+  /* ─── Highlight card ─── */
+  .highlight-card {
+    background: var(--lime-bg);
+    border: 1px solid rgba(134,185,64,0.2);
+    border-radius: 10px; padding: 14px; margin-bottom: 8px;
+  }
+  .highlight-card .title { font-size: 14px; font-weight: 600; color: #111; }
+  .highlight-card .summary { font-size: 12px; color: #4b5563; margin-top: 4px; }
+  .highlight-card .impact { font-size: 12px; color: var(--teal); font-weight: 500; margin-top: 6px; }
+
+  /* ─── Goal code badge ─── */
+  .goal-badge {
+    display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px;
+    border-radius: 4px; background: var(--blue-bg); color: var(--blue);
+  }
+
+  /* ─── Bullet list ─── */
+  .bullet-list { list-style: none; padding-right: 12px; }
+  .bullet-list li { font-size: 14px; color: #374151; display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+  .bullet-list .dot { width: 5px; height: 5px; border-radius: 50%; background: #9ca3af; margin-top: 8px; flex-shrink: 0; }
+  .bullet-list .dot-red { background: var(--red); }
+  .bullet-list .dot-green { background: #22c55e; }
+  .bullet-list .dot-purple { background: #8b5cf6; }
+  .bullet-list .bold { font-weight: 600; }
+
+  /* ─── Goal row ─── */
+  .goal-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .goal-row .bar-wrap { width: 100px; height: 8px; background: #f3f4f6; border-radius: 99px; overflow: hidden; flex-shrink: 0; }
+  .goal-row .bar-fill { height: 100%; border-radius: 99px; }
+  .goal-row .pct { font-size: 14px; font-weight: 700; width: 42px; text-align: left; flex-shrink: 0; }
+  .goal-row .status { font-size: 10px; padding: 2px 8px; border-radius: 99px; background: #f3f4f6; color: #6b7280; flex-shrink: 0; }
+  .goal-row .name { font-size: 14px; color: #111; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* ─── Initiative row ─── */
+  .init-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
+  .init-row:last-child { border-bottom: none; }
+  .init-row .name { flex: 1; font-size: 14px; color: #111; }
+  .init-row .pillar { font-size: 10px; color: #6b7280; }
+  .init-row .status { font-size: 10px; padding: 2px 8px; border-radius: 99px; background: #f3f4f6; color: #6b7280; flex-shrink: 0; }
+  .init-row .bar-wrap { width: 80px; height: 6px; background: #f3f4f6; border-radius: 99px; overflow: hidden; flex-shrink: 0; }
+  .init-row .bar-fill { height: 100%; border-radius: 99px; }
+  .init-row .pct { font-size: 10px; color: #6b7280; width: 28px; text-align: center; }
+
+  /* ─── Goal group heading ─── */
+  .goal-group { margin-bottom: 16px; }
+  .goal-group-title { font-size: 12px; font-weight: 700; color: var(--blue); display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+
+  /* ─── Subheading label ─── */
+  .sub-label { font-size: 12px; font-weight: 700; color: var(--lime); display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .sub-label .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); }
+
+  /* ─── Footer ─── */
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #e5e7eb; text-align: center; }
+  .footer p { font-size: 10px; color: #9ca3af; }
+  .footer .deco { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+  .footer .deco .line { height: 1px; width: 48px; background: #e5e7eb; }
+  .footer .deco span { font-size: 9px; color: #d1d5db; }
+
+  .text-narrative { font-size: 14px; color: #374151; line-height: 1.8; margin-bottom: 12px; }
+
+  /* ─── Insight Cards ─── */
+  .insight-stack { display: flex; flex-direction: column; gap: 8px; }
+  .insight-card {
+    display: flex; align-items: flex-start; gap: 10px;
+    border-radius: 10px; border: 1px solid; padding: 12px;
+  }
+  .insight-icon { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; }
+  .insight-card p { font-size: 13px; line-height: 1.7; }
+  .insight-positive { background: #ecfdf5; border-color: #a7f3d0; color: #047857; }
+  .insight-positive .insight-icon { color: #047857; }
+  .insight-warning { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+  .insight-warning .insight-icon { color: #b45309; }
+  .insight-critical { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+  .insight-critical .insight-icon { color: #b91c1c; }
+  .insight-neutral { background: #f8fafc; border-color: #e2e8f0; color: #475569; }
+  .insight-neutral .insight-icon { color: #475569; }
+
+  /* ─── Decision Cards ─── */
+  .decisions-stack { display: flex; flex-direction: column; gap: 8px; }
+  .decision-card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; }
+  .decision-header { display: flex; align-items: flex-start; gap: 12px; }
+  .decision-num {
+    width: 24px; height: 24px; border-radius: 50%; background: var(--teal-bg); color: var(--teal);
+    font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+  }
+  .decision-body { flex: 1; min-width: 0; }
+  .decision-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+  .decision-action { font-size: 14px; font-weight: 700; color: #111; }
+  .decision-rationale { font-size: 12px; color: #6b7280; line-height: 1.7; }
+  .priority { font-size: 10px; padding: 2px 10px; border-radius: 99px; font-weight: 500; white-space: nowrap; }
+  .priority-urgent { background: #fee2e2; color: #b91c1c; }
+  .priority-important { background: #fef3c7; color: #b45309; }
+  .priority-follow { background: #f1f5f9; color: #475569; }
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <!-- ═══════ HEADER ═══════ -->
+  <div class="header">
+    <p class="ministry">وزارة البلديات والإسكان</p>
+    <p class="department">إدارة التطوير والتأهيل</p>
+    <div class="deco"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+    <h1>التقرير الشهري</h1>
+    <p class="period">مارس 2026</p>
+  </div>
+
+  <!-- ═══════ 1. EXECUTIVE SUMMARY ═══════ -->
+  <div class="section-heading">
+    <div class="num">1</div>
+    <h2>الملخص التنفيذي</h2>
+  </div>
+  <p class="text-narrative">
+    شهد شهر مارس 2026 تقدمًا ملحوظًا في عدة محاور استراتيجية، حيث تم تحقيق 18 منجزًا تنفيذيًا واستراتيجيًا يعكس التزام الإدارة بخطة التطوير المعتمدة. أبرز ما تحقق هو الانتهاء من المرحلة الأولى لمشروع التحول الرقمي الداخلي، إضافة إلى اعتماد الإطار الجديد لتأهيل الكوادر البشرية. كما تم تسجيل تقدم جوهري في مبادرة تطوير بيئة العمل بنسبة وصلت إلى 75%. تستمر الإدارة في متابعة التحديات المرتبطة بالتنسيق بين الجهات الشريكة، مع التركيز على تسريع الإنجاز في المبادرات المتأخرة.
+  </p>
+
+  <!-- ═══════ 2. KPIs ═══════ -->
+  <div class="section-heading">
+    <div class="num">2</div>
+    <h2>المؤشرات الرئيسية</h2>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi kpi-teal"><div class="value">18</div><div class="label">منجز محقق</div></div>
+    <div class="kpi kpi-lime"><div class="value">4</div><div class="label">إنجاز بارز</div></div>
+    <div class="kpi kpi-blue"><div class="value">62%</div><div class="label">متوسط تقدم الأهداف</div></div>
+    <div class="kpi kpi-gold"><div class="value">54%</div><div class="label">متوسط تقدم المبادرات</div></div>
+  </div>
+
+  <!-- ═══════ 3. KEY ACHIEVEMENTS ═══════ -->
+  <div class="section-heading">
+    <div class="num">3</div>
+    <h2>أبرز المنجزات</h2>
+  </div>
+  <p class="text-narrative">
+    تنوعت منجزات الشهر بين إنجازات استراتيجية ذات أثر بعيد المدى ومنجزات تنفيذية تدعم سير العمل اليومي. فيما يلي أبرز ما تحقق، مصنفًا حسب الأهداف الاستراتيجية.
+  </p>
+
+  <!-- Highlights -->
+  <div class="sub-label"><div class="dot"></div> إنجازات بارزة</div>
+
+  <div class="highlight-card">
+    <div class="title">إطلاق المرحلة الأولى من منصة التحول الرقمي الداخلي</div>
+    <div class="summary">تم تفعيل النظام الإلكتروني لإدارة المهام والمشاريع داخليًا، مما أتاح تتبع الإنجاز آليًا وتقليل الاعتماد على المتابعة الورقية.</div>
+    <div class="impact">الأثر: تقليل وقت المتابعة بنسبة 40% وزيادة الشفافية في توزيع المهام</div>
+  </div>
+
+  <div class="highlight-card">
+    <div class="title">اعتماد الإطار الجديد لتأهيل الكوادر البشرية</div>
+    <div class="summary">تمت الموافقة على إطار التأهيل المهني والتقني للموظفين بالتنسيق مع إدارة الموارد البشرية، ويتضمن مسارات تدريبية متخصصة.</div>
+    <div class="impact">الأثر: تغطية 85% من الاحتياجات التدريبية المحددة في خطة التطوير</div>
+  </div>
+
+  <div class="highlight-card">
+    <div class="title">توقيع مذكرة تفاهم مع جامعة الملك سعود لدعم البحث والابتكار</div>
+    <div class="summary">شراكة بحثية لتطوير حلول ذكية في مجال إدارة المرافق والخدمات البلدية.</div>
+    <div class="impact">الأثر: إطلاق 3 مشاريع بحثية مشتركة خلال النصف الثاني من 2026</div>
+  </div>
+
+  <div class="highlight-card">
+    <div class="title">الانتهاء من تقييم النضج المؤسسي للإدارة</div>
+    <div class="summary">إتمام التقييم الشامل وفق معايير التميز المؤسسي، وتحديد 12 فرصة تحسين ذات أولوية.</div>
+    <div class="impact">الأثر: خارطة طريق واضحة لرفع مستوى النضج المؤسسي خلال 18 شهرًا</div>
+  </div>
+
+  <!-- Goal 1 achievements -->
+  <div class="goal-group">
+    <div class="goal-group-title">
+      <span class="goal-badge">هـ.1</span>
+      رفع كفاءة الأداء المؤسسي
+    </div>
+    <ul class="bullet-list">
+      <li><span class="dot"></span><div><span class="bold">تحديث 7 إجراءات عمل</span> — مراجعة وتوثيق الإجراءات التشغيلية الرئيسية وفق معايير الجودة المعتمدة</div></li>
+      <li><span class="dot"></span><div><span class="bold">تنفيذ ورشة التخطيط الاستراتيجي الربعية</span> — بمشاركة 15 موظفًا من مختلف الأقسام لمراجعة مستهدفات الربع الثاني</div></li>
+      <li><span class="dot"></span><div><span class="bold">إعداد تقرير مقارنة الأداء المرجعي</span> — مقارنة مؤشرات الإدارة مع 5 جهات حكومية مماثلة</div></li>
+    </ul>
+  </div>
+
+  <!-- Goal 2 achievements -->
+  <div class="goal-group">
+    <div class="goal-group-title">
+      <span class="goal-badge">هـ.2</span>
+      تطوير الكوادر البشرية
+    </div>
+    <ul class="bullet-list">
+      <li><span class="dot"></span><div><span class="bold">تنفيذ 3 برامج تدريبية متخصصة</span> — إدارة المشاريع الاحترافية، والتحول الرقمي، والقيادة التنفيذية بمشاركة 28 موظفًا</div></li>
+      <li><span class="dot"></span><div><span class="bold">إطلاق برنامج التدوير الوظيفي التجريبي</span> — المرحلة الأولى شملت 6 موظفين في 3 أقسام</div></li>
+      <li><span class="dot"></span><div><span class="bold">إتمام تقييم الأداء نصف السنوي</span> — تقييم شامل لـ 42 موظفًا مع خطط تطوير فردية</div></li>
+    </ul>
+  </div>
+
+  <!-- Goal 3 achievements -->
+  <div class="goal-group">
+    <div class="goal-group-title">
+      <span class="goal-badge">هـ.3</span>
+      تعزيز التحول الرقمي
+    </div>
+    <ul class="bullet-list">
+      <li><span class="dot"></span><div><span class="bold">تفعيل لوحة المتابعة الآلية للمشاريع</span> — ربط 14 مشروعًا بنظام المتابعة الإلكتروني مع تحديثات يومية</div></li>
+      <li><span class="dot"></span><div><span class="bold">إطلاق النسخة التجريبية لتطبيق الخدمات الذاتية</span> — تطبيق جوال يتيح للموظفين تقديم الطلبات إلكترونيًا</div></li>
+      <li><span class="dot"></span><div><span class="bold">الانتهاء من مسح البنية التحتية الرقمية</span> — تقييم شامل للأنظمة الحالية وتحديد فجوات التكامل</div></li>
+    </ul>
+  </div>
+
+  <!-- Goal 4 achievements -->
+  <div class="goal-group">
+    <div class="goal-group-title">
+      <span class="goal-badge">هـ.4</span>
+      تحسين بيئة العمل والخدمات
+    </div>
+    <ul class="bullet-list">
+      <li><span class="dot"></span><div><span class="bold">استكمال تجهيز قاعة الابتكار</span> — تجهيز مساحة عمل تفاعلية بسعة 20 شخصًا مزودة بأحدث التقنيات</div></li>
+      <li><span class="dot"></span><div><span class="bold">تنفيذ استبيان رضا الموظفين الشهري</span> — نسبة مشاركة 87% مع ارتفاع معدل الرضا إلى 4.1 من 5</div></li>
+    </ul>
+  </div>
+
+  <!-- Unlinked -->
+  <div class="goal-group">
+    <div class="goal-group-title" style="color: #6b7280;">
+      منجزات عامة
+    </div>
+    <ul class="bullet-list">
+      <li><span class="dot"></span><div><span class="bold">المشاركة في ملتقى التميز الحكومي</span> — تقديم عرض حول تجربة الإدارة في التحول الرقمي أمام 200 مشارك</div></li>
+      <li><span class="dot"></span><div><span class="bold">إعداد الدليل المرجعي لسياسات الإدارة</span> — توثيق 24 سياسة وإجراء في دليل موحد</div></li>
+    </ul>
+  </div>
+
+  <!-- ═══════ 4. GOALS SNAPSHOT ═══════ -->
+  <div class="section-heading">
+    <div class="num">4</div>
+    <h2>لقطة تقدم الأهداف</h2>
+  </div>
+  <p class="text-narrative">
+    تُظهر مؤشرات الأداء تقدمًا متفاوتًا بين الأهداف الأربعة. الهدف الثالث (التحول الرقمي) يسجل أعلى معدل تقدم بفضل اكتمال المرحلة الأولى من المنصة الرقمية، بينما يحتاج الهدف الأول إلى تسريع خلال الربع القادم.
+  </p>
+
+  <div class="goal-row">
+    <span class="goal-badge">هـ.1</span>
+    <div class="name">رفع كفاءة الأداء المؤسسي</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:48%;background:var(--gold)"></div></div>
+    <div class="pct" style="color:var(--gold)">48%</div>
+    <span class="status">نشط</span>
+  </div>
+  <div class="goal-row">
+    <span class="goal-badge">هـ.2</span>
+    <div class="name">تطوير الكوادر البشرية</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:65%;background:var(--teal)"></div></div>
+    <div class="pct" style="color:var(--teal)">65%</div>
+    <span class="status">نشط</span>
+  </div>
+  <div class="goal-row">
+    <span class="goal-badge">هـ.3</span>
+    <div class="name">تعزيز التحول الرقمي</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:72%;background:var(--teal)"></div></div>
+    <div class="pct" style="color:var(--teal)">72%</div>
+    <span class="status">نشط</span>
+  </div>
+  <div class="goal-row">
+    <span class="goal-badge">هـ.4</span>
+    <div class="name">تحسين بيئة العمل والخدمات</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:61%;background:var(--teal)"></div></div>
+    <div class="pct" style="color:var(--teal)">61%</div>
+    <span class="status">نشط</span>
+  </div>
+
+  <!-- ═══════ 5. INITIATIVES UPDATE ═══════ -->
+  <div class="section-heading">
+    <div class="num">5</div>
+    <h2>تحديث المبادرات التطويرية</h2>
+  </div>
+
+  <div class="init-row">
+    <div class="name">مشروع التحول الرقمي الداخلي<br><span class="pillar">المحور الرقمي</span></div>
+    <span class="status">جاري</span>
+    <div class="bar-wrap"><div class="bar-fill" style="width:75%;background:var(--teal)"></div></div>
+    <div class="pct">75%</div>
+  </div>
+  <div class="init-row">
+    <div class="name">برنامج تأهيل القيادات<br><span class="pillar">محور الكوادر</span></div>
+    <span class="status">جاري</span>
+    <div class="bar-wrap"><div class="bar-fill" style="width:60%;background:var(--teal)"></div></div>
+    <div class="pct">60%</div>
+  </div>
+  <div class="init-row">
+    <div class="name">تطوير بيئة العمل المادية<br><span class="pillar">محور البيئة</span></div>
+    <span class="status">جاري</span>
+    <div class="bar-wrap"><div class="bar-fill" style="width:80%;background:var(--lime)"></div></div>
+    <div class="pct">80%</div>
+  </div>
+  <div class="init-row">
+    <div class="name">إطار الشراكات الاستراتيجية<br><span class="pillar">المحور الرقمي</span></div>
+    <span class="status">في التصميم</span>
+    <div class="bar-wrap"><div class="bar-fill" style="width:35%;background:var(--gold)"></div></div>
+    <div class="pct">35%</div>
+  </div>
+  <div class="init-row">
+    <div class="name">نظام إدارة المعرفة<br><span class="pillar">المحور الرقمي</span></div>
+    <span class="status">دراسة أولية</span>
+    <div class="bar-wrap"><div class="bar-fill" style="width:20%;background:var(--gold)"></div></div>
+    <div class="pct">20%</div>
+  </div>
+  <div class="init-row">
+    <div class="name">منصة التدريب الإلكتروني<br><span class="pillar">محور الكوادر</span></div>
+    <span class="status">جاري الطرح</span>
+    <div class="bar-wrap"><div class="bar-fill" style="width:45%;background:var(--gold)"></div></div>
+    <div class="pct">45%</div>
+  </div>
+  <div class="init-row">
+    <div class="name">مشروع تطوير مؤشرات الأداء<br><span class="pillar">محور البيئة</span></div>
+    <span class="status">مكتمل</span>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:var(--lime)"></div></div>
+    <div class="pct">100%</div>
+  </div>
+
+  <!-- ═══════ 6. CHALLENGES ═══════ -->
+  <div class="section-heading">
+    <div class="num">6</div>
+    <h2>التحديات والمعوقات</h2>
+  </div>
+  <p class="text-narrative">
+    رغم التقدم المحقق، واجهت الإدارة عددًا من التحديات التي تتطلب معالجة خلال الفترة القادمة لضمان استمرارية الزخم.
+  </p>
+  <ul class="bullet-list">
+    <li><span class="dot dot-red"></span><div><span class="bold">تأخر التنسيق مع إدارة تقنية المعلومات:</span> التكامل التقني مع الأنظمة المركزية يحتاج إلى مزيد من التنسيق، مما أخّر بعض مخرجات مشروع التحول الرقمي بأسبوعين</div></li>
+    <li><span class="dot dot-red"></span><div><span class="bold">محدودية ميزانية التدريب:</span> الاحتياج التدريبي يتجاوز المخصصات المتاحة بنسبة 30%، مما يستدعي إعادة ترتيب الأولويات أو البحث عن مصادر تمويل إضافية</div></li>
+    <li><span class="dot dot-red"></span><div><span class="bold">ضغط العمل على فريق المشاريع:</span> تزامن تنفيذ 5 مبادرات رئيسية مع فريق محدود العدد يؤثر على جودة التسليمات</div></li>
+  </ul>
+
+  <!-- ═══════ OPPORTUNITIES ═══════ -->
+  <div class="section-heading">
+    <h2 style="margin-right:40px;">الفرص</h2>
+  </div>
+  <ul class="bullet-list">
+    <li><span class="dot dot-green"></span><div><span class="bold">الاستفادة من مبادرة التحول الوطني:</span> إمكانية الحصول على دعم إضافي من صندوق التنمية الوطني لمشاريع الرقمنة</div></li>
+    <li><span class="dot dot-green"></span><div><span class="bold">توسيع الشراكات الأكاديمية:</span> طلبات تعاون من 3 جامعات إضافية بعد نجاح شراكة جامعة الملك سعود</div></li>
+  </ul>
+
+  <!-- ═══════ 7. NEXT STEPS ═══════ -->
+  <div class="section-heading">
+    <div class="num">7</div>
+    <h2>الخطوات والأولويات القادمة</h2>
+  </div>
+  <p class="text-narrative">
+    تركز الإدارة خلال شهر أبريل 2026 على تسريع الإنجاز في المبادرات المتأخرة، مع الحفاظ على زخم المسارات الناجحة.
+  </p>
+  <ul class="bullet-list">
+    <li><span class="dot dot-purple"></span><div><span class="bold">إطلاق المرحلة الثانية من منصة التحول الرقمي:</span> تفعيل وحدات التقارير الآلية والتكامل مع الأنظمة المالية</div></li>
+    <li><span class="dot dot-purple"></span><div><span class="bold">اعتماد خطة التدريب للربع الثاني:</span> استكمال تسجيل 15 موظفًا في برامج القيادة المتقدمة</div></li>
+    <li><span class="dot dot-purple"></span><div><span class="bold">عقد اجتماع تنسيقي مع إدارة تقنية المعلومات:</span> حل مشكلات التكامل التقني وتسريع الجدول الزمني المتأخر</div></li>
+    <li><span class="dot dot-purple"></span><div><span class="bold">إعداد التقرير الربع سنوي الأول:</span> تجميع وتحليل بيانات الربع الأول وتقديمه للإدارة العليا</div></li>
+    <li><span class="dot dot-purple"></span><div><span class="bold">استكمال دراسة جدوى نظام إدارة المعرفة:</span> تقديم التوصيات النهائية بنهاية أبريل</div></li>
+  </ul>
+
+  <!-- ═══════ 8. PERFORMANCE ANALYSIS ═══════ -->
+  <div class="section-heading">
+    <div class="num">8</div>
+    <h2 style="display:flex;align-items:center;gap:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#026D69" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      تحليل الأداء
+    </h2>
+  </div>
+  <div class="insight-stack">
+    <div class="insight-card insight-neutral">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      <p>متوسط تقدم الأهداف (62%) ضمن النطاق المقبول مع وجود فرص للتحسين</p>
+    </div>
+    <div class="insight-card insight-positive">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/><circle cx="12" cy="12" r="10"/></svg>
+      <p>هدفان يتقدمان بقوة: هـ.3، هـ.2</p>
+    </div>
+    <div class="insight-card insight-warning">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>فجوة أداء (24 نقطة) بين الأهداف — يُوصى بإعادة توزيع الموارد لتقليل التفاوت</p>
+    </div>
+    <div class="insight-card insight-warning">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>مبادرة متوقفة واحدة — تتطلب قرارًا بالاستمرار أو الإلغاء</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 9. STRATEGIC INTERPRETATION ═══════ -->
+  <div class="section-heading">
+    <div class="num">9</div>
+    <h2 style="display:flex;align-items:center;gap:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A5276" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      القراءة الاستراتيجية
+    </h2>
+  </div>
+  <div class="insight-stack">
+    <div class="insight-card insight-neutral">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      <p>12 منجز تنفيذي مقابل 6 استراتيجي — الطابع التشغيلي يغلب، فرصة لرفع الأثر الاستراتيجي</p>
+    </div>
+    <div class="insight-card insight-positive">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/><circle cx="12" cy="12" r="10"/></svg>
+      <p>مبادرة مكتملة (تطوير مؤشرات الأداء) — يُوصى بتقييم أثرها وتوثيق الدروس المستفادة</p>
+    </div>
+    <div class="insight-card insight-warning">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>11% من المنجزات غير مرتبطة بأهداف — جهد مبذول خارج الخطة الاستراتيجية</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 10. EXECUTIVE INSIGHTS ═══════ -->
+  <div class="section-heading">
+    <div class="num">10</div>
+    <h2 style="display:flex;align-items:center;gap:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8872C" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      ملاحظات تنفيذية
+    </h2>
+  </div>
+  <div class="insight-stack">
+    <div class="insight-card insight-warning">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>تركّز 39% من المنجزات على هـ.3 (التحول الرقمي) — خطر إهمال الأهداف الأخرى</p>
+    </div>
+    <div class="insight-card insight-warning">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>تم رصد 4 تحديات — الكثافة مرتفعة وتتطلب جلسة مراجعة مخصصة</p>
+    </div>
+    <div class="insight-card insight-neutral">
+      <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      <p>هـ.1 يتقدم بنسبة 48% لكن بدون إنجازات بارزة — التقدم كمّي وليس نوعي</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 11. REQUIRED DECISIONS ═══════ -->
+  <div class="section-heading">
+    <div class="num">11</div>
+    <h2 style="display:flex;align-items:center;gap:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      قرارات مطلوبة
+    </h2>
+  </div>
+  <div class="decisions-stack">
+    <div class="decision-card">
+      <div class="decision-header">
+        <span class="decision-num">1</span>
+        <div class="decision-body">
+          <div class="decision-title-row">
+            <p class="decision-action">إعادة توزيع الجهد بين الأهداف لتقليل فجوة الأداء (24 نقطة)</p>
+            <span class="priority priority-urgent">عاجل</span>
+          </div>
+          <p class="decision-rationale">التفاوت الكبير يعني أن بعض الأهداف تحصل على اهتمام أكبر على حساب أخرى — استمرار الوضع يُضعف الخطة السنوية</p>
+        </div>
+      </div>
+    </div>
+    <div class="decision-card">
+      <div class="decision-header">
+        <span class="decision-num">2</span>
+        <div class="decision-body">
+          <div class="decision-title-row">
+            <p class="decision-action">عقد اجتماع مراجعة مخصص للتحديات (4 تحديات مسجّلة)</p>
+            <span class="priority priority-important">مهم</span>
+          </div>
+          <p class="decision-rationale">كثافة التحديات تتجاوز المعدل الطبيعي — معالجة فردية لن تكفي</p>
+        </div>
+      </div>
+    </div>
+    <div class="decision-card">
+      <div class="decision-header">
+        <span class="decision-num">3</span>
+        <div class="decision-body">
+          <div class="decision-title-row">
+            <p class="decision-action">اتخاذ قرار بشأن مبادرة "نظام إدارة المعرفة" المتوقفة</p>
+            <span class="priority priority-important">مهم</span>
+          </div>
+          <p class="decision-rationale">مبادرة معلّقة بدون مسار واضح — تستهلك حيّزًا تخطيطيًا بدون عائد</p>
+        </div>
+      </div>
+    </div>
+    <div class="decision-card">
+      <div class="decision-header">
+        <span class="decision-num">4</span>
+        <div class="decision-body">
+          <div class="decision-title-row">
+            <p class="decision-action">تخصيص موارد إضافية لهدف هـ.1 (رفع كفاءة الأداء المؤسسي)</p>
+            <span class="priority priority-follow">للمتابعة</span>
+          </div>
+          <p class="decision-rationale">تقدم 48% — أقل أهداف الإدارة أداءً، ويحتاج خطة تعافٍ قبل نهاية الربع الثاني</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <div class="footer">
+    <p>تم إنشاء هذا التقرير آليًا بواسطة منصة DRD Executive Hub — ٣ أبريل ٢٠٢٦</p>
+    <div class="deco">
+      <div class="line"></div>
+      <span>إدارة التطوير والتأهيل</span>
+      <div class="line"></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

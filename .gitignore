@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# next.js
+/.next/
+/out/
+
+# env
+.env*.local
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+
+# reference/archive folders (not part of Next.js app)
+/01-source/
+/02-reports-templates/
+/03-data/
+/04-skill/
+/05-docs/
+/6-Ministry Brand Identity/
