@@ -10,6 +10,7 @@ import {
   generateReportTitle,
 } from "@/lib/queries/reports";
 import type { ReportSnapshot } from "@/lib/queries/reports";
+import type { Database } from "@/types/database";
 
 type ActionResult = { success: true; id: string } | { success: false; error: string };
 
@@ -58,7 +59,7 @@ export async function generateReport(input: GenerateReportInput): Promise<Action
   } else {
     const { data: newPeriod, error: periodError } = await supabase
       .from("report_periods")
-      .insert({
+      .insert<Database["public"]["Tables"]["report_periods"]["Insert"]>({
         user_id: user.id,
         period_type: input.periodType,
         label: periodInfo.label,
@@ -92,7 +93,7 @@ export async function generateReport(input: GenerateReportInput): Promise<Action
 
   const { data: report, error: reportError } = await supabase
     .from("reports")
-    .insert({
+    .insert<Database["public"]["Tables"]["reports"]["Insert"]>({
       user_id: user.id,
       period_id: periodId,
       report_type: input.periodType,

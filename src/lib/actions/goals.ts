@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import type { Database } from "@/types/database";
 
 export type GoalFormData = {
   code: string;
@@ -30,7 +31,7 @@ export async function createGoal(data: GoalFormData): Promise<ActionResult> {
 
   const { data: row, error } = await supabase
     .from("goals")
-    .insert({
+    .insert<Database["public"]["Tables"]["goals"]["Insert"]>({
       user_id: user.id,
       code: data.code,
       title: data.title,

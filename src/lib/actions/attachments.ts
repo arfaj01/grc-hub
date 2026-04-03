@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import type { Database } from "@/types/database";
 
 export type AttachmentMeta = {
   file_name: string;
@@ -24,7 +25,7 @@ export async function createAttachment(data: AttachmentMeta): Promise<ActionResu
 
   const { data: row, error } = await supabase
     .from("attachments")
-    .insert({
+    .insert<Database["public"]["Tables"]["attachments"]["Insert"]>({
       user_id: user.id,
       file_name: data.file_name,
       file_path: data.file_path,

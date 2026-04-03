@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import type { Database } from "@/types/database";
 
 export type AchievementFormData = {
   title: string;
@@ -31,7 +32,7 @@ export async function createAchievement(data: AchievementFormData): Promise<Acti
 
   const { data: row, error } = await supabase
     .from("achievements")
-    .insert({
+    .insert<Database["public"]["Tables"]["achievements"]["Insert"]>({
       user_id: user.id,
       title: data.title,
       achievement_date: data.achievement_date,

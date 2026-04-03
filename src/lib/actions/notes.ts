@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import type { Database } from "@/types/database";
 
 export type NoteFormData = {
   title?: string;
@@ -22,7 +23,7 @@ export async function createNote(data: NoteFormData): Promise<ActionResult> {
 
   const { data: row, error } = await supabase
     .from("notes")
-    .insert({
+    .insert<Database["public"]["Tables"]["notes"]["Insert"]>({
       user_id: user.id,
       title: data.title || null,
       body: data.body,

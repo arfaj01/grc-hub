@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import type { Database } from "@/types/database";
 
 export type InitiativeFormData = {
   title: string;
@@ -28,7 +29,7 @@ export async function createInitiative(data: InitiativeFormData): Promise<Action
 
   const { data: row, error } = await supabase
     .from("development_initiatives")
-    .insert({
+    .insert<Database["public"]["Tables"]["development_initiatives"]["Insert"]>({
       user_id: user.id,
       title: data.title,
       goal_id: data.goal_id || null,
