@@ -7,7 +7,7 @@ git config user.email "arfaj001@gmail.com"
 git config user.name "Mohammed Aalarfaj"
 
 git add -A
-git commit -m "Skip TS type checking during build to unblock deployment"
+git commit -m "Upgrade Next.js to 15.3.1 to fix Vercel security block"
 git push origin main
 
 echo.
