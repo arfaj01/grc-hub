@@ -7,7 +7,7 @@ git config user.email "arfaj001@gmail.com"
 git config user.name "Mohammed Aalarfaj"
 
 git add -A
-git commit -m "Upgrade Next.js to 15.3.1 to fix Vercel security block"
+git commit -m "Add bulk import feature — feed data in one go"
 git push origin main
 
 echo.

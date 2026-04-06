@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard, Target, Layers, Award, FileText,
-  Archive, StickyNote, Settings,
+  Archive, StickyNote, Settings, Upload,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { href: "/reports", label: "التقارير", icon: FileText },
   { href: "/archive", label: "الأرشيف", icon: Archive },
   { href: "/notes", label: "الملاحظات", icon: StickyNote },
+  { href: "/import", label: "استيراد البيانات", icon: Upload },
   { href: "/settings", label: "الإعدادات", icon: Settings },
 ];
 
