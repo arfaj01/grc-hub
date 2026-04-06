@@ -7,7 +7,7 @@ git config user.email "arfaj001@gmail.com"
 git config user.name "Mohammed Aalarfaj"
 
 git add -A
-git commit -m "Add bulk import feature — feed data in one go"
+git commit -m "Fix layout scroll — main content now scrollable"
 git push origin main
 
 echo.
